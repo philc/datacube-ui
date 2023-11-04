@@ -1,0 +1,72 @@
+.tableset {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.tableset .columns {
+  display: flex;
+  /* This scrollbar should never be shown. But this property must be set for each .column to scroll. */
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.tableset .columns > .column {
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-y: scroll;
+  overscroll-behavior: contain;
+}
+
+.tableset .columns > .column:first-of-type {
+  padding-left: 0;
+}
+
+.tableset .columns > .column:last-of-type {
+  padding-right: 0;
+  /* Make this last column take up the full horizontal width, so that if the mouse cursor is on the right side
+   * of the page, scrolling the page will scroll this column. */
+  flex: 1;
+}
+
+.tableset td, .tableset th {
+  position: relative;
+}
+
+.tableset td > a {
+  display: none;
+  position: absolute;
+  top: 3px;
+  right: 26px;
+  font-size: 20px;
+  background-color: white;
+  text-decoration: none;
+}
+
+.tableset td > a.gumshoe-icon {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+}
+
+.tableset td > a.gumshoe-icon:hover {
+  background-color: var(--link-hover-color);
+}
+
+.tableset td:hover > a {
+  display: block;
+}
+
+.tableset th .graph-button {
+  display: none;
+  position: absolute;
+  border: 1px solid #ccc;
+  padding: 1px 2px;
+  border-radius: 2px;
+  background-color: #eee;
+  right: 0;
+}
+
+.tableset th:hover .graph-button {
+  display: block;
+}
